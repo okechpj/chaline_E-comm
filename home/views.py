@@ -1,6 +1,17 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.views.generic.base import TemplateView
+from store.models import Product
+from category.models import Category
 
-class Home(TemplateView):
-    template_name = 'index.html'
+def home(request):
+    # Query all products that are available
+    products = Product.objects.all()
+    categories = Category.objects.all()
+
+    # Prepare context to pass to template
+    context = {
+        'products': products,
+        'categories': categories
+    }
+    
+    # Render the template with context data
+    return render(request, 'templates/index.html', context)

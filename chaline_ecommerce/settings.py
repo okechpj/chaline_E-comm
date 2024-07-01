@@ -30,7 +30,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'accounts',
-    'shop'
+    'store',
+    'category',
+    
 ]
 
 MIDDLEWARE = [
@@ -62,6 +64,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'chaline_ecommerce.wsgi.application'
+
+AUTH_USER_MODEL = 'accounts.Account'
 
 
 # Database
@@ -109,7 +113,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'mystaticfiles/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'mystaticfiles'
@@ -126,5 +130,10 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = 'login'
 
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'mystaticfiles')
-MEDIA_URL = 'mystaticfiles/'
+# MEDIA_ROOT =  os.path.join(BASE_DIR, 'mystaticfiles')
+# MEDIA_URL = 'mystaticfiles/'
+
+# settings.py
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
